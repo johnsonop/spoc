@@ -35,6 +35,11 @@ public class ErrorResult extends Result {
         this.data = data;
     }
 
+    public ErrorResult(HttpStatus httpStatus, Object data) {
+        super(httpStatus.value(), httpStatus.getReasonPhrase());
+        this.data = data;
+    }
+
     public Object getData() {
         return data;
     }

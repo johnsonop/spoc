@@ -1,7 +1,7 @@
 package com.edu.spoc.base.model;
 
+import com.github.pagehelper.Page;
 import com.github.pagehelper.PageInfo;
-import com.wjc.bill.util.Page;
 
 import java.util.ArrayList;
 import java.util.List;

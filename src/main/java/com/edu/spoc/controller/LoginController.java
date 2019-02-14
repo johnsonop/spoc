@@ -1,9 +1,12 @@
 package com.edu.spoc.controller;
 
 import com.edu.spoc.Vo.LoginVo;
+import com.edu.spoc.base.model.ErrorResult;
 import com.edu.spoc.base.model.Result;
 import com.edu.spoc.model.SysUser;
 import com.edu.spoc.service.UserService;
+import org.springframework.http.HttpStatus;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -21,11 +24,10 @@ public class LoginController extends BaseController {
      * @return result
      */
     @RequestMapping("/login")
-    public Result login(LoginVo loginVo, HttpSession session) {
+    public Result login(LoginVo loginVo, HttpSession session, BindingResult result) {
         //请求参数校验
-        ValidationResult result = ValidationUtil.validateEntity(loginVo);
-        if (result.isHasErrors()) {
-            return success(HttpCode.BAD_REQUEST, result.getErrorMsg());
+        if (result.hasErrors()) {
+            return new ErrorResult(HttpStatus.INTERNAL_SERVER_ERROR, result.getAllErrors());
         }
         SysUser sysUser = userService.verifyUser(loginVo);
         if (sysUser != null) {
