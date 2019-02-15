@@ -1,6 +1,6 @@
 package com.edu.spoc.service;
 
-import com.edu.spoc.Vo.LoginVo;
+import com.edu.spoc.vo.LoginVo;
 import com.edu.spoc.model.SysUser;
 
 /**

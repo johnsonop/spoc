@@ -1,6 +1,6 @@
 package com.edu.spoc.controller;
 
-import com.edu.spoc.Vo.LoginVo;
+import com.edu.spoc.vo.LoginVo;
 import com.edu.spoc.base.model.Result;
 import com.edu.spoc.model.SysUser;
 import com.edu.spoc.service.UserService;

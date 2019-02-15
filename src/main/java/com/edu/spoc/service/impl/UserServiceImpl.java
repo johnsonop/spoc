@@ -1,6 +1,6 @@
 package com.edu.spoc.service.impl;
 
-import com.edu.spoc.Vo.LoginVo;
+import com.edu.spoc.vo.LoginVo;
 import com.edu.spoc.mapper.SysUserMapper;
 import com.edu.spoc.model.SysUser;
 import com.edu.spoc.model.SysUserExample;

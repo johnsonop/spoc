@@ -1,4 +1,4 @@
-package com.edu.spoc.Vo;
+package com.edu.spoc.vo;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotBlank;
