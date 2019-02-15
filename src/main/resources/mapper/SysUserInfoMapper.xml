@@ -2,8 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.edu.spoc.mapper.SysUserInfoMapper">
   <resultMap id="BaseResultMap" type="com.edu.spoc.model.SysUserInfo">
-    <result column="id" jdbcType="INTEGER" property="id" />
-    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="id" jdbcType="VARCHAR" property="id" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
     <result column="user_name" jdbcType="VARCHAR" property="userName" />
     <result column="user_sex" jdbcType="INTEGER" property="userSex" />
     <result column="user_introduction" jdbcType="VARCHAR" property="userIntroduction" />
@@ -109,7 +109,7 @@
       create_time, user_class, user_grade, 
       user_academy, user_email, user_num, 
       user_admission_time)
-    values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, 
       #{userSex,jdbcType=INTEGER}, #{userIntroduction,jdbcType=VARCHAR}, #{userSchool,jdbcType=VARCHAR}, 
       #{userProfession,jdbcType=VARCHAR}, #{userQq,jdbcType=VARCHAR}, #{userContact,jdbcType=VARCHAR}, 
       #{createTime,jdbcType=TIMESTAMP}, #{userClass,jdbcType=VARCHAR}, #{userGrade,jdbcType=VARCHAR}, 
@@ -170,10 +170,10 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
-        #{id,jdbcType=INTEGER},
+        #{id,jdbcType=VARCHAR},
       </if>
       <if test="userId != null">
-        #{userId,jdbcType=INTEGER},
+        #{userId,jdbcType=VARCHAR},
       </if>
       <if test="userName != null">
         #{userName,jdbcType=VARCHAR},
@@ -229,10 +229,10 @@
     update sys_user_info
     <set>
       <if test="record.id != null">
-        id = #{record.id,jdbcType=INTEGER},
+        id = #{record.id,jdbcType=VARCHAR},
       </if>
       <if test="record.userId != null">
-        user_id = #{record.userId,jdbcType=INTEGER},
+        user_id = #{record.userId,jdbcType=VARCHAR},
       </if>
       <if test="record.userName != null">
         user_name = #{record.userName,jdbcType=VARCHAR},
@@ -283,8 +283,8 @@
   </update>
   <update id="updateByExample" parameterType="map">
     update sys_user_info
-    set id = #{record.id,jdbcType=INTEGER},
-      user_id = #{record.userId,jdbcType=INTEGER},
+    set id = #{record.id,jdbcType=VARCHAR},
+      user_id = #{record.userId,jdbcType=VARCHAR},
       user_name = #{record.userName,jdbcType=VARCHAR},
       user_sex = #{record.userSex,jdbcType=INTEGER},
       user_introduction = #{record.userIntroduction,jdbcType=VARCHAR},

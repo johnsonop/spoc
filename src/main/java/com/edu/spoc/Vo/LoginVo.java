@@ -1,13 +1,16 @@
 package com.edu.spoc.Vo;
 
 import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotBlank;
 
 public class LoginVo {
-    @Length(min = 6, max = 18, message = "用户名或密码错误")
+    @NotBlank(message = "用户名或密码错误")
+    @Length(min = 5, max = 18, message = "用户名或密码错误")
     private String username;
+    @NotBlank(message = "用户名或密码错误")
     @Length(min = 6, max = 18, message = "用户名或密码错误")
     private String password;
-    @Length(min = 4, max = 4, message = "验证码格式错误")
+    //    @Length(min = 4, max = 4, message = "验证码格式错误")
     private String verificationCode;
 
     public String getUsername() {

@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.edu.spoc.mapper.CourseSortMapper">
   <resultMap id="BaseResultMap" type="com.edu.spoc.model.CourseSort">
-    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="id" jdbcType="VARCHAR" property="id" />
     <result column="sort_name" jdbcType="VARCHAR" property="sortName" />
     <result column="sort_desc" jdbcType="VARCHAR" property="sortDesc" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
@@ -91,7 +91,7 @@
   <insert id="insert" parameterType="com.edu.spoc.model.CourseSort">
     insert into course_sort (id, sort_name, sort_desc, 
       create_time)
-    values (#{id,jdbcType=INTEGER}, #{sortName,jdbcType=VARCHAR}, #{sortDesc,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=VARCHAR}, #{sortName,jdbcType=VARCHAR}, #{sortDesc,jdbcType=VARCHAR}, 
       #{createTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.edu.spoc.model.CourseSort">
@@ -112,7 +112,7 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
-        #{id,jdbcType=INTEGER},
+        #{id,jdbcType=VARCHAR},
       </if>
       <if test="sortName != null">
         #{sortName,jdbcType=VARCHAR},
@@ -135,7 +135,7 @@
     update course_sort
     <set>
       <if test="record.id != null">
-        id = #{record.id,jdbcType=INTEGER},
+        id = #{record.id,jdbcType=VARCHAR},
       </if>
       <if test="record.sortName != null">
         sort_name = #{record.sortName,jdbcType=VARCHAR},
@@ -153,7 +153,7 @@
   </update>
   <update id="updateByExample" parameterType="map">
     update course_sort
-    set id = #{record.id,jdbcType=INTEGER},
+    set id = #{record.id,jdbcType=VARCHAR},
       sort_name = #{record.sortName,jdbcType=VARCHAR},
       sort_desc = #{record.sortDesc,jdbcType=VARCHAR},
       create_time = #{record.createTime,jdbcType=TIMESTAMP}

@@ -6,6 +6,12 @@ import com.edu.spoc.base.model.Result;
 import com.edu.spoc.base.model.SuccessResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * 基础controller类
@@ -13,6 +19,13 @@ import org.slf4j.LoggerFactory;
  * @author wjc
  */
 public abstract class BaseController {
+    @Resource
+    protected HttpServletRequest req;
+    @Resource
+    protected HttpServletResponse resp;
+    @Resource
+    protected HttpSession session;
+
     protected Logger logger = LoggerFactory.getLogger(this.getClass());
 
     protected Result success() {
@@ -49,6 +62,10 @@ public abstract class BaseController {
 
     protected Result error(int code, String msg, Object data) {
         return new ErrorResult(code, msg, data);
+    }
+
+    protected Result requestParamsError(Object data) {
+        return error(HttpStatus.BAD_REQUEST.value(), data);
     }
 
 }

@@ -9,9 +9,9 @@ spring:
     name: spoc
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/spoc?autoReconnect=true&useUnicode=true&characterEncoding=utf8&serverTimezone=GMT
+    url: jdbc:mysql://wanjc.top:3306/spoc?autoReconnect=true&useUnicode=true&characterEncoding=utf8&serverTimezone=GMT
     username: root
-    password: 12345678
+    password: Wan152280
     initialSize: 5
     minIdle: 5
     maxActive: 100000
@@ -45,8 +45,8 @@ logging:
     com:
       apache:
         ibatis: DEBUG
-      sofn:
-        giftgiving:
+      edu:
+        spoc:
           mapper: DEBUG
 
 mybatis:

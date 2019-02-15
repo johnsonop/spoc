@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.edu.spoc.mapper.SysUserRoleMapper">
   <resultMap id="BaseResultMap" type="com.edu.spoc.model.SysUserRole">
-    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="id" jdbcType="VARCHAR" property="id" />
     <result column="role_name" jdbcType="VARCHAR" property="roleName" />
     <result column="role_desc" jdbcType="VARCHAR" property="roleDesc" />
   </resultMap>
@@ -90,7 +90,7 @@
   <insert id="insert" parameterType="com.edu.spoc.model.SysUserRole">
     insert into sys_user_role (id, role_name, role_desc
       )
-    values (#{id,jdbcType=INTEGER}, #{roleName,jdbcType=VARCHAR}, #{roleDesc,jdbcType=VARCHAR}
+    values (#{id,jdbcType=VARCHAR}, #{roleName,jdbcType=VARCHAR}, #{roleDesc,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.edu.spoc.model.SysUserRole">
@@ -108,7 +108,7 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
-        #{id,jdbcType=INTEGER},
+        #{id,jdbcType=VARCHAR},
       </if>
       <if test="roleName != null">
         #{roleName,jdbcType=VARCHAR},
@@ -128,7 +128,7 @@
     update sys_user_role
     <set>
       <if test="record.id != null">
-        id = #{record.id,jdbcType=INTEGER},
+        id = #{record.id,jdbcType=VARCHAR},
       </if>
       <if test="record.roleName != null">
         role_name = #{record.roleName,jdbcType=VARCHAR},
@@ -143,7 +143,7 @@
   </update>
   <update id="updateByExample" parameterType="map">
     update sys_user_role
-    set id = #{record.id,jdbcType=INTEGER},
+    set id = #{record.id,jdbcType=VARCHAR},
       role_name = #{record.roleName,jdbcType=VARCHAR},
       role_desc = #{record.roleDesc,jdbcType=VARCHAR}
     <if test="_parameter != null">

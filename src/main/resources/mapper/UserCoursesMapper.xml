@@ -2,9 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.edu.spoc.mapper.UserCoursesMapper">
   <resultMap id="BaseResultMap" type="com.edu.spoc.model.UserCourses">
-    <result column="id" jdbcType="INTEGER" property="id" />
-    <result column="user_id" jdbcType="INTEGER" property="userId" />
-    <result column="course_id" jdbcType="INTEGER" property="courseId" />
+    <result column="id" jdbcType="VARCHAR" property="id" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="course_id" jdbcType="VARCHAR" property="courseId" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
   </resultMap>
   <sql id="Example_Where_Clause">
@@ -74,7 +74,7 @@
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from user_courses
+    from user_course
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -83,19 +83,19 @@
     </if>
   </select>
   <delete id="deleteByExample" parameterType="com.edu.spoc.model.UserCoursesExample">
-    delete from user_courses
+    delete from user_course
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
   <insert id="insert" parameterType="com.edu.spoc.model.UserCourses">
-    insert into user_courses (id, user_id, course_id, 
+    insert into user_course (id, user_id, course_id, 
       create_time)
-    values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{courseId,jdbcType=INTEGER}, 
+    values (#{id,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, #{courseId,jdbcType=VARCHAR}, 
       #{createTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.edu.spoc.model.UserCourses">
-    insert into user_courses
+    insert into user_course
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
         id,
@@ -112,13 +112,13 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
-        #{id,jdbcType=INTEGER},
+        #{id,jdbcType=VARCHAR},
       </if>
       <if test="userId != null">
-        #{userId,jdbcType=INTEGER},
+        #{userId,jdbcType=VARCHAR},
       </if>
       <if test="courseId != null">
-        #{courseId,jdbcType=INTEGER},
+        #{courseId,jdbcType=VARCHAR},
       </if>
       <if test="createTime != null">
         #{createTime,jdbcType=TIMESTAMP},
@@ -126,22 +126,22 @@
     </trim>
   </insert>
   <select id="countByExample" parameterType="com.edu.spoc.model.UserCoursesExample" resultType="java.lang.Long">
-    select count(*) from user_courses
+    select count(*) from user_course
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
-    update user_courses
+    update user_course
     <set>
       <if test="record.id != null">
-        id = #{record.id,jdbcType=INTEGER},
+        id = #{record.id,jdbcType=VARCHAR},
       </if>
       <if test="record.userId != null">
-        user_id = #{record.userId,jdbcType=INTEGER},
+        user_id = #{record.userId,jdbcType=VARCHAR},
       </if>
       <if test="record.courseId != null">
-        course_id = #{record.courseId,jdbcType=INTEGER},
+        course_id = #{record.courseId,jdbcType=VARCHAR},
       </if>
       <if test="record.createTime != null">
         create_time = #{record.createTime,jdbcType=TIMESTAMP},
@@ -152,10 +152,10 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
-    update user_courses
-    set id = #{record.id,jdbcType=INTEGER},
-      user_id = #{record.userId,jdbcType=INTEGER},
-      course_id = #{record.courseId,jdbcType=INTEGER},
+    update user_course
+    set id = #{record.id,jdbcType=VARCHAR},
+      user_id = #{record.userId,jdbcType=VARCHAR},
+      course_id = #{record.courseId,jdbcType=VARCHAR},
       create_time = #{record.createTime,jdbcType=TIMESTAMP}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />

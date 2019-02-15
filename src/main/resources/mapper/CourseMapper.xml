@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.edu.spoc.mapper.CourseMapper">
   <resultMap id="BaseResultMap" type="com.edu.spoc.model.Course">
-    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="id" jdbcType="VARCHAR" property="id" />
     <result column="course_name" jdbcType="VARCHAR" property="courseName" />
     <result column="course_introduction" jdbcType="VARCHAR" property="courseIntroduction" />
     <result column="course_info" jdbcType="VARCHAR" property="courseInfo" />
@@ -100,7 +100,7 @@
       course_info, course_outline, course_score_standard, 
       course_video_introduction, status, course_teachers, 
       course_cover)
-    values (#{id,jdbcType=INTEGER}, #{courseName,jdbcType=VARCHAR}, #{courseIntroduction,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=VARCHAR}, #{courseName,jdbcType=VARCHAR}, #{courseIntroduction,jdbcType=VARCHAR}, 
       #{courseInfo,jdbcType=VARCHAR}, #{courseOutline,jdbcType=VARCHAR}, #{courseScoreStandard,jdbcType=VARCHAR}, 
       #{courseVideoIntroduction,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, #{courseTeachers,jdbcType=VARCHAR}, 
       #{courseCover,jdbcType=VARCHAR})
@@ -141,7 +141,7 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
-        #{id,jdbcType=INTEGER},
+        #{id,jdbcType=VARCHAR},
       </if>
       <if test="courseName != null">
         #{courseName,jdbcType=VARCHAR},
@@ -182,7 +182,7 @@
     update course
     <set>
       <if test="record.id != null">
-        id = #{record.id,jdbcType=INTEGER},
+        id = #{record.id,jdbcType=VARCHAR},
       </if>
       <if test="record.courseName != null">
         course_name = #{record.courseName,jdbcType=VARCHAR},
@@ -218,7 +218,7 @@
   </update>
   <update id="updateByExample" parameterType="map">
     update course
-    set id = #{record.id,jdbcType=INTEGER},
+    set id = #{record.id,jdbcType=VARCHAR},
       course_name = #{record.courseName,jdbcType=VARCHAR},
       course_introduction = #{record.courseIntroduction,jdbcType=VARCHAR},
       course_info = #{record.courseInfo,jdbcType=VARCHAR},

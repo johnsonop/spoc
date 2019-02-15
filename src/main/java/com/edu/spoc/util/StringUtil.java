@@ -27,8 +27,7 @@ public class StringUtil extends org.apache.commons.lang3.StringUtils {
      * @return
      */
     public static String generateUUID() {
-        return UUID.randomUUID().toString().replace("-", "").substring(0, 15)
-                + System.currentTimeMillis();
+        return UUID.randomUUID().toString().replace("-", "");
 
     }
 
@@ -44,6 +43,12 @@ public class StringUtil extends org.apache.commons.lang3.StringUtils {
             sb.append(generateKey());
         }
         return sb.toString();
+    }
+
+    public static void main(String[] args) {
+        for (int i = 0; i < 10; i++) {
+            System.out.println(generateUUID());
+        }
     }
 
 

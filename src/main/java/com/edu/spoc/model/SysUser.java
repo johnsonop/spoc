@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class SysUser implements Serializable {
-    private Integer id;
+    private String id;
 
     private String name;
 
@@ -18,14 +18,16 @@ public class SysUser implements Serializable {
 
     private Integer status;
 
+    private Date lastLoginTime;
+
     private static final long serialVersionUID = 1L;
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setId(String id) {
+        this.id = id == null ? null : id.trim();
     }
 
     public String getName() {
@@ -74,5 +76,13 @@ public class SysUser implements Serializable {
 
     public void setStatus(Integer status) {
         this.status = status;
+    }
+
+    public Date getLastLoginTime() {
+        return lastLoginTime;
+    }
+
+    public void setLastLoginTime(Date lastLoginTime) {
+        this.lastLoginTime = lastLoginTime;
     }
 }

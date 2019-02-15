@@ -4,38 +4,38 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class UserCourses implements Serializable {
-    private Integer id;
+    private String id;
 
-    private Integer userId;
+    private String userId;
 
-    private Integer courseId;
+    private String courseId;
 
     private Date createTime;
 
     private static final long serialVersionUID = 1L;
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setId(String id) {
+        this.id = id == null ? null : id.trim();
     }
 
-    public Integer getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(Integer userId) {
-        this.userId = userId;
+    public void setUserId(String userId) {
+        this.userId = userId == null ? null : userId.trim();
     }
 
-    public Integer getCourseId() {
+    public String getCourseId() {
         return courseId;
     }
 
-    public void setCourseId(Integer courseId) {
-        this.courseId = courseId;
+    public void setCourseId(String courseId) {
+        this.courseId = courseId == null ? null : courseId.trim();
     }
 
     public Date getCreateTime() {
